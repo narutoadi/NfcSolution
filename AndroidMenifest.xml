@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.aditi.myapplication">
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.NFC"/>
+
+    <uses-permission android:name=
+        "android.permission.INTERNET"
+        />
+
+    <uses-permission android:name=
+        "android.permission.ACCESS_WIFI_STATE"
+        />
+    <uses-permission android:name=
+        "android.permission.CHANGE_WIFI_STATE"
+        />
+
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- This intent-filter is for main action -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- This intent-filter is for plain text -->
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <!-- This intent-filter is for URI of type "http://www.khushibaby.org/" -->
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"
+                    android:host="www.khushibaby.org"
+                    android:pathPrefix="/" />
+            </intent-filter>
+
+
+
+        </activity>
+    </application>
+
+</manifest>
+
