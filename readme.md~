@@ -13,5 +13,3 @@ Proposed Solution:
 We can update the mobile app to handle multiple NDEF records simultaneously.
 1. Lets add <intent-filter> for both 'PLAIN-TEXT' as well as 'URI' in AndroidMenifest.xml
 2. Modify the code in MainActivity.java accordingly.
-
-
